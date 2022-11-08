@@ -51,18 +51,37 @@ namespace WindowsFormsApp1
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddBookForm addBookForm = new AddBookForm();
-            addBookForm.ShowDialog();
+            AddGivenBookForm addGivenBookForm = new AddGivenBookForm();
+            addGivenBookForm.ShowDialog();
             RefreshData();
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
+            foreach (int i in bookLV.SelectedIndices)
+            {
+                SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+                string temp = bookLV.Items[i].Text;
+                bookLV.Items.Remove(bookLV.Items[i]);
+                string cmd = "delete from GivenBooks where GivenID='" + temp + "'";
+                SqlCommand myCommand = new SqlCommand(cmd, connection);
+                connection.Open();
+                myCommand.ExecuteNonQuery();
+            }
 
+            RefreshData();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
+            foreach (int i in bookLV.SelectedIndices)
+            {
+
+                int id = int.Parse(bookLV.Items[i].Text);
+                AddGivenBookForm addGivenBookForm = new AddGivenBookForm(id);
+                addGivenBookForm.ShowDialog();
+                RefreshData();
+            }
 
         }
     }

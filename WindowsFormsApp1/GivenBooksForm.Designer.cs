@@ -170,6 +170,7 @@
             this.MaximumSize = new System.Drawing.Size(900, 535);
             this.MinimumSize = new System.Drawing.Size(900, 535);
             this.Name = "GivenBooksForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GivenBooksForm";
             this.Load += new System.EventHandler(this.GivenBooksForm_Load);
             this.ResumeLayout(false);

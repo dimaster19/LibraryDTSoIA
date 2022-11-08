@@ -134,10 +134,10 @@ namespace WindowsFormsApp1
                     connection.Open();
                     SqlDataReader reader = cmd2.ExecuteReader();
                     reader.Read();
-                    authorCB.SelectedValue = reader.GetInt32(1);
-                    publisherCB.SelectedValue = reader.GetInt32(2);
-                    genreCB.SelectedValue = reader.GetInt32(3);
-                    bookNameTB.Text = "";
+                    authorCB.SelectedValue = reader[1].ToString();
+                    publisherCB.SelectedValue = reader[2].ToString();
+                    genreCB.SelectedValue = reader[3].ToString();
+                    bookNameTB.Text = reader[4].ToString();
                     connection.Close();
                 }
             }
