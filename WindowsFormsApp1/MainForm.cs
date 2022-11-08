@@ -36,6 +36,10 @@ namespace WindowsFormsApp1
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
+            Form f = new ReadersForm();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
 
         }
 

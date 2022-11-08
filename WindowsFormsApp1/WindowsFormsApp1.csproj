@@ -68,6 +68,12 @@
     <Compile Include="AddGivenBookForm.Designer.cs">
       <DependentUpon>AddGivenBookForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddReaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddReaderForm.Designer.cs">
+      <DependentUpon>AddReaderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GivenBooksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReadersForm.Designer.cs">
+      <DependentUpon>ReadersForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddAuthor.resx">
       <DependentUpon>AddAuthor.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddGivenBookForm.resx">
       <DependentUpon>AddGivenBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddReaderForm.resx">
+      <DependentUpon>AddReaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GivenBooksForm.resx">
       <DependentUpon>GivenBooksForm.cs</DependentUpon>
@@ -121,6 +136,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReadersForm.resx">
+      <DependentUpon>ReadersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="LibraryDataSet.xsc">
       <DependentUpon>LibraryDataSet.xsd</DependentUpon>
     </None>
