@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace WindowsFormsApp1
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+          
 
         }
 
@@ -99,6 +100,30 @@ namespace WindowsFormsApp1
                 RefreshData();
             }
 
+        }
+
+        private void addAuthor_Click(object sender, EventArgs e)
+        {
+            AddAuthor addAuthorForm = new AddAuthor(0);
+            addAuthorForm.ShowDialog();
+            RefreshData();
+         
+        }
+
+        private void addPublisher_Click(object sender, EventArgs e)
+        {
+            AddAuthor addAuthorForm = new AddAuthor(1);
+            addAuthorForm.ShowDialog();
+            RefreshData();
+           
+        }
+
+        private void addGenre_Click(object sender, EventArgs e)
+        {
+            AddAuthor addAuthorForm = new AddAuthor(2);
+            addAuthorForm.ShowDialog();
+            RefreshData();
+            
         }
     }
 }

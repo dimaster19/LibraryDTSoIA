@@ -23,10 +23,38 @@ namespace WindowsFormsApp1
 
         }
 
-        private void книгиToolStripMenuItem_Click(object sender, EventArgs e)
+       
+
+        private void materialButton1_Click(object sender, EventArgs e)
         {
             Form f = new BooksForm();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void givenBooksButton_Click(object sender, EventArgs e)
+        {
+            Form f = new GivenBooksForm();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

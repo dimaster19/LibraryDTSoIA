@@ -205,6 +205,7 @@
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.bookNameTB);
             this.Name = "AddBookForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBookForm";
             this.Load += new System.EventHandler(this.AddBookForm_Load);
             this.ResumeLayout(false);

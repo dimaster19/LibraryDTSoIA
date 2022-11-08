@@ -1,4 +1,6 @@
 ﻿using System;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,61 +37,64 @@ namespace WindowsFormsApp1
         private void saveButton_Click(object sender, EventArgs e)
         {
 
-
-            if (updateID == 0)
+            if (bookNameTB.Text != "")
             {
-                SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-
-                string query = "INSERT INTO Books (AuthorID, PublisherID, GenreID, BookName)";
-                query += " VALUES ( @AuthorID, @PublisherID, @GenreID, @BookName)";
-
-                SqlCommand myCommand = new SqlCommand(query, connection);
-                myCommand.Parameters.AddWithValue("@AuthorID", authorCB.SelectedValue);
-                myCommand.Parameters.AddWithValue("@PublisherID", publisherCB.SelectedValue);
-                myCommand.Parameters.AddWithValue("@GenreID", genreCB.SelectedValue);
-                myCommand.Parameters.AddWithValue("@BookName", bookNameTB.Text);
-                connection.Open();
-
-                try
+                if (updateID == 0)
                 {
-                    myCommand.ExecuteNonQuery();
+                    SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+
+                    string query = "INSERT INTO Books (AuthorID, PublisherID, GenreID, BookName)";
+                    query += " VALUES ( @AuthorID, @PublisherID, @GenreID, @BookName)";
+
+                    SqlCommand myCommand = new SqlCommand(query, connection);
+                    myCommand.Parameters.AddWithValue("@AuthorID", authorCB.SelectedValue);
+                    myCommand.Parameters.AddWithValue("@PublisherID", publisherCB.SelectedValue);
+                    myCommand.Parameters.AddWithValue("@GenreID", genreCB.SelectedValue);
+                    myCommand.Parameters.AddWithValue("@BookName", bookNameTB.Text);
+                    connection.Open();
+
+                    try
+                    {
+                        myCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Одно из полей заполнено не верно!");
+                        return;
+                    }
+                    connection.Close();
                 }
-                catch (Exception)
+
+                else
                 {
-                    MessageBox.Show("Одно из полей заполнено не верно!");
-                    return;
+                    SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+                    //string query = "INSERT INTO Books (AuthorID, PublisherID, GenreID, BookName)";
+                    string query = "UPDATE Books Set AuthorID = @AuthorID, PublisherID = @PublisherID, GenreID = @GenreID, BookName = @BookName   WHERE BookID=@ID";
+
+                    SqlCommand myCommand = new SqlCommand(query, connection);
+                    myCommand.Parameters.AddWithValue("@AuthorID", authorCB.SelectedValue);
+                    myCommand.Parameters.AddWithValue("@PublisherID", publisherCB.SelectedValue);
+                    myCommand.Parameters.AddWithValue("@GenreID", genreCB.SelectedValue);
+                    myCommand.Parameters.AddWithValue("@BookName", bookNameTB.Text);
+                    myCommand.Parameters.AddWithValue("@ID", updateID);
+                    connection.Open();
+
+                    try
+                    {
+                        myCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Одно из полей заполнено не верно!");
+                        return;
+                    }
+                    connection.Close();
                 }
-                connection.Close();
+
+                DialogResult = System.Windows.Forms.DialogResult.OK;
+                Close();
             }
-
-            else
-            {
-                SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-                //string query = "INSERT INTO Books (AuthorID, PublisherID, GenreID, BookName)";
-                string query = "UPDATE Books Set AuthorID = @AuthorID, PublisherID = @PublisherID, GenreID = @GenreID, BookName = @BookName   WHERE BookID=@ID";
-
-                SqlCommand myCommand = new SqlCommand(query, connection);
-                myCommand.Parameters.AddWithValue("@AuthorID", authorCB.SelectedValue);
-                myCommand.Parameters.AddWithValue("@PublisherID", publisherCB.SelectedValue);
-                myCommand.Parameters.AddWithValue("@GenreID", genreCB.SelectedValue);
-                myCommand.Parameters.AddWithValue("@BookName", bookNameTB.Text);
-                myCommand.Parameters.AddWithValue("@ID", updateID);
-                connection.Open();
-
-                try
-                {
-                    myCommand.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Одно из полей заполнено не верно!");
-                    return;
-                }
-                connection.Close();
-            }
-            
-            DialogResult = System.Windows.Forms.DialogResult.OK;
-            Close();
+            else MessageBox.Show("Заполните название книги");
         }
 
         private void AddBookForm_Load(object sender, EventArgs e)
@@ -115,8 +120,8 @@ namespace WindowsFormsApp1
                     publisherCB.DataSource = ds.Tables[0];
                     publisherCB.DisplayMember = "PublisherFullName";
                     publisherCB.ValueMember = "IDPublisher";
-                   
-                }
+                    connection.Close();
+            }
                
 
             if (updateID != 0)

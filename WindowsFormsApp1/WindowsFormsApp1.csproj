@@ -50,11 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAuthor.Designer.cs">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddBookForm.Designer.cs">
       <DependentUpon>AddBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GivenBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GivenBooksForm.Designer.cs">
+      <DependentUpon>GivenBooksForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -75,8 +87,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddAuthor.resx">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddBookForm.resx">
       <DependentUpon>AddBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GivenBooksForm.resx">
+      <DependentUpon>GivenBooksForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -127,6 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-литература-100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
