@@ -48,6 +48,9 @@
             this.addAuthor = new MaterialSkin.Controls.MaterialButton();
             this.addPublisher = new MaterialSkin.Controls.MaterialButton();
             this.addGenre = new MaterialSkin.Controls.MaterialButton();
+            this.pcAuthorsButton = new MaterialSkin.Controls.MaterialButton();
+            this.pcPublishersButton = new MaterialSkin.Controls.MaterialButton();
+            this.pcGenresButton = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.authorIDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
@@ -205,7 +208,7 @@
             this.addAuthor.Depth = 0;
             this.addAuthor.HighEmphasis = true;
             this.addAuthor.Icon = null;
-            this.addAuthor.Location = new System.Drawing.Point(8, 474);
+            this.addAuthor.Location = new System.Drawing.Point(8, 480);
             this.addAuthor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addAuthor.MouseState = MaterialSkin.MouseState.HOVER;
             this.addAuthor.Name = "addAuthor";
@@ -226,7 +229,7 @@
             this.addPublisher.Depth = 0;
             this.addPublisher.HighEmphasis = true;
             this.addPublisher.Icon = null;
-            this.addPublisher.Location = new System.Drawing.Point(254, 474);
+            this.addPublisher.Location = new System.Drawing.Point(254, 480);
             this.addPublisher.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addPublisher.MouseState = MaterialSkin.MouseState.HOVER;
             this.addPublisher.Name = "addPublisher";
@@ -247,7 +250,7 @@
             this.addGenre.Depth = 0;
             this.addGenre.HighEmphasis = true;
             this.addGenre.Icon = null;
-            this.addGenre.Location = new System.Drawing.Point(493, 474);
+            this.addGenre.Location = new System.Drawing.Point(493, 480);
             this.addGenre.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addGenre.MouseState = MaterialSkin.MouseState.HOVER;
             this.addGenre.Name = "addGenre";
@@ -260,11 +263,77 @@
             this.addGenre.UseVisualStyleBackColor = true;
             this.addGenre.Click += new System.EventHandler(this.addGenre_Click);
             // 
+            // pcAuthorsButton
+            // 
+            this.pcAuthorsButton.AutoSize = false;
+            this.pcAuthorsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pcAuthorsButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.pcAuthorsButton.Depth = 0;
+            this.pcAuthorsButton.HighEmphasis = true;
+            this.pcAuthorsButton.Icon = null;
+            this.pcAuthorsButton.Location = new System.Drawing.Point(8, 528);
+            this.pcAuthorsButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pcAuthorsButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pcAuthorsButton.Name = "pcAuthorsButton";
+            this.pcAuthorsButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.pcAuthorsButton.Size = new System.Drawing.Size(181, 36);
+            this.pcAuthorsButton.TabIndex = 13;
+            this.pcAuthorsButton.Text = "Статистика авторов";
+            this.pcAuthorsButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.pcAuthorsButton.UseAccentColor = false;
+            this.pcAuthorsButton.UseVisualStyleBackColor = true;
+            this.pcAuthorsButton.Click += new System.EventHandler(this.pcAuthorsButton_Click);
+            // 
+            // pcPublishersButton
+            // 
+            this.pcPublishersButton.AutoSize = false;
+            this.pcPublishersButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pcPublishersButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.pcPublishersButton.Depth = 0;
+            this.pcPublishersButton.HighEmphasis = true;
+            this.pcPublishersButton.Icon = null;
+            this.pcPublishersButton.Location = new System.Drawing.Point(254, 528);
+            this.pcPublishersButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pcPublishersButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pcPublishersButton.Name = "pcPublishersButton";
+            this.pcPublishersButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.pcPublishersButton.Size = new System.Drawing.Size(181, 36);
+            this.pcPublishersButton.TabIndex = 14;
+            this.pcPublishersButton.Text = "Статистика издателей";
+            this.pcPublishersButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.pcPublishersButton.UseAccentColor = false;
+            this.pcPublishersButton.UseVisualStyleBackColor = true;
+            this.pcPublishersButton.Click += new System.EventHandler(this.pcPublishersButton_Click);
+            // 
+            // pcGenresButton
+            // 
+            this.pcGenresButton.AutoSize = false;
+            this.pcGenresButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pcGenresButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.pcGenresButton.Depth = 0;
+            this.pcGenresButton.HighEmphasis = true;
+            this.pcGenresButton.Icon = null;
+            this.pcGenresButton.Location = new System.Drawing.Point(493, 528);
+            this.pcGenresButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pcGenresButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pcGenresButton.Name = "pcGenresButton";
+            this.pcGenresButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.pcGenresButton.Size = new System.Drawing.Size(181, 36);
+            this.pcGenresButton.TabIndex = 15;
+            this.pcGenresButton.Text = "Статистика жанров";
+            this.pcGenresButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.pcGenresButton.UseAccentColor = false;
+            this.pcGenresButton.UseVisualStyleBackColor = true;
+            this.pcGenresButton.Click += new System.EventHandler(this.pcGenresButton_Click);
+            // 
             // BooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.ClientSize = new System.Drawing.Size(800, 583);
+            this.Controls.Add(this.pcGenresButton);
+            this.Controls.Add(this.pcPublishersButton);
+            this.Controls.Add(this.pcAuthorsButton);
             this.Controls.Add(this.addGenre);
             this.Controls.Add(this.addPublisher);
             this.Controls.Add(this.addAuthor);
@@ -273,8 +342,8 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.bookLV);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(800, 535);
-            this.MinimumSize = new System.Drawing.Size(800, 535);
+            this.MaximumSize = new System.Drawing.Size(800, 583);
+            this.MinimumSize = new System.Drawing.Size(800, 583);
             this.Name = "BooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
@@ -308,5 +377,8 @@
         private MaterialSkin.Controls.MaterialButton addAuthor;
         private MaterialSkin.Controls.MaterialButton addPublisher;
         private MaterialSkin.Controls.MaterialButton addGenre;
+        private MaterialSkin.Controls.MaterialButton pcAuthorsButton;
+        private MaterialSkin.Controls.MaterialButton pcPublishersButton;
+        private MaterialSkin.Controls.MaterialButton pcGenresButton;
     }
 }

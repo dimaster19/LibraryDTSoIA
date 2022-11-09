@@ -132,5 +132,26 @@ namespace WindowsFormsApp1
             RefreshData();
             
         }
+
+      
+        private void pcAuthorsButton_Click(object sender, EventArgs e)
+        {
+            DiagrammBookForm diag = new DiagrammBookForm(0);
+            diag.ShowDialog();
+           
+        }
+
+        private void pcPublishersButton_Click(object sender, EventArgs e)
+        {
+            DiagrammBookForm diag = new DiagrammBookForm(1);
+            diag.ShowDialog();
+
+        }
+
+        private void pcGenresButton_Click(object sender, EventArgs e)
+        {
+            DiagrammBookForm diag = new DiagrammBookForm(2);
+            diag.ShowDialog();
+        }
     }
 }
