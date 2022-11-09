@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         public GivenBooksForm()
         {
             InitializeComponent();
+            Text = "Выданные книги";
         }
 
         private void GivenBooksForm_Load(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class GivenBooksForm
+    partial class WorkersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GivenBooksForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkersForm));
             this.updateButton = new MaterialSkin.Controls.MaterialButton();
             this.removeButton = new MaterialSkin.Controls.MaterialButton();
             this.addButton = new MaterialSkin.Controls.MaterialButton();
-            this.bookLV = new MaterialSkin.Controls.MaterialListView();
-            this.GivenID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BookName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ReaderFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DateStart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DateEnd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.workerLV = new MaterialSkin.Controls.MaterialListView();
+            this.IDWorker = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.WorkerFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.WorkerAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.WorkerPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // updateButton
@@ -48,13 +46,13 @@
             this.updateButton.Depth = 0;
             this.updateButton.HighEmphasis = true;
             this.updateButton.Icon = null;
-            this.updateButton.Location = new System.Drawing.Point(780, 327);
+            this.updateButton.Location = new System.Drawing.Point(780, 330);
             this.updateButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.updateButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.updateButton.Name = "updateButton";
             this.updateButton.NoAccentTextColor = System.Drawing.Color.Empty;
             this.updateButton.Size = new System.Drawing.Size(101, 36);
-            this.updateButton.TabIndex = 16;
+            this.updateButton.TabIndex = 24;
             this.updateButton.Text = "Изменить";
             this.updateButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.updateButton.UseAccentColor = false;
@@ -69,13 +67,13 @@
             this.removeButton.Depth = 0;
             this.removeButton.HighEmphasis = true;
             this.removeButton.Icon = null;
-            this.removeButton.Location = new System.Drawing.Point(780, 279);
+            this.removeButton.Location = new System.Drawing.Point(780, 282);
             this.removeButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.removeButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.removeButton.Name = "removeButton";
             this.removeButton.NoAccentTextColor = System.Drawing.Color.Empty;
             this.removeButton.Size = new System.Drawing.Size(100, 36);
-            this.removeButton.TabIndex = 15;
+            this.removeButton.TabIndex = 23;
             this.removeButton.Text = "Удалить";
             this.removeButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.removeButton.UseAccentColor = false;
@@ -90,76 +88,64 @@
             this.addButton.Depth = 0;
             this.addButton.HighEmphasis = true;
             this.addButton.Icon = null;
-            this.addButton.Location = new System.Drawing.Point(780, 231);
+            this.addButton.Location = new System.Drawing.Point(780, 234);
             this.addButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.addButton.Name = "addButton";
             this.addButton.NoAccentTextColor = System.Drawing.Color.Empty;
             this.addButton.Size = new System.Drawing.Size(100, 36);
-            this.addButton.TabIndex = 14;
+            this.addButton.TabIndex = 22;
             this.addButton.Text = "Добавить";
             this.addButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.addButton.UseAccentColor = false;
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // bookLV
+            // workerLV
             // 
-            this.bookLV.AutoSizeTable = false;
-            this.bookLV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bookLV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bookLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.GivenID,
-            this.BookName,
-            this.ReaderFullName,
-            this.DateStart,
-            this.DateEnd,
-            this.WorkerFullName});
-            this.bookLV.Depth = 0;
-            this.bookLV.FullRowSelect = true;
-            this.bookLV.HideSelection = false;
-            this.bookLV.Location = new System.Drawing.Point(6, 91);
-            this.bookLV.MaximumSize = new System.Drawing.Size(767, 415);
-            this.bookLV.MinimumSize = new System.Drawing.Size(767, 415);
-            this.bookLV.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.bookLV.MouseState = MaterialSkin.MouseState.OUT;
-            this.bookLV.Name = "bookLV";
-            this.bookLV.OwnerDraw = true;
-            this.bookLV.Size = new System.Drawing.Size(767, 415);
-            this.bookLV.TabIndex = 13;
-            this.bookLV.UseCompatibleStateImageBehavior = false;
-            this.bookLV.View = System.Windows.Forms.View.Details;
+            this.workerLV.AutoSizeTable = false;
+            this.workerLV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.workerLV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.workerLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.IDWorker,
+            this.WorkerFullName,
+            this.WorkerAddress,
+            this.WorkerPhone});
+            this.workerLV.Depth = 0;
+            this.workerLV.FullRowSelect = true;
+            this.workerLV.HideSelection = false;
+            this.workerLV.Location = new System.Drawing.Point(6, 94);
+            this.workerLV.MaximumSize = new System.Drawing.Size(767, 415);
+            this.workerLV.MinimumSize = new System.Drawing.Size(767, 415);
+            this.workerLV.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.workerLV.MouseState = MaterialSkin.MouseState.OUT;
+            this.workerLV.Name = "workerLV";
+            this.workerLV.OwnerDraw = true;
+            this.workerLV.Size = new System.Drawing.Size(767, 415);
+            this.workerLV.TabIndex = 21;
+            this.workerLV.UseCompatibleStateImageBehavior = false;
+            this.workerLV.View = System.Windows.Forms.View.Details;
             // 
-            // GivenID
+            // IDWorker
             // 
-            this.GivenID.Text = "ID";
-            // 
-            // BookName
-            // 
-            this.BookName.Text = "Название";
-            this.BookName.Width = 150;
-            // 
-            // ReaderFullName
-            // 
-            this.ReaderFullName.Text = "Читатель";
-            this.ReaderFullName.Width = 150;
-            // 
-            // DateStart
-            // 
-            this.DateStart.Text = "От";
-            this.DateStart.Width = 120;
-            // 
-            // DateEnd
-            // 
-            this.DateEnd.Text = "До";
-            this.DateEnd.Width = 150;
+            this.IDWorker.Text = "ID";
             // 
             // WorkerFullName
             // 
-            this.WorkerFullName.Text = "Работник";
-            this.WorkerFullName.Width = 120;
+            this.WorkerFullName.Text = "ФИО";
+            this.WorkerFullName.Width = 205;
             // 
-            // GivenBooksForm
+            // WorkerAddress
+            // 
+            this.WorkerAddress.Text = "Адрес";
+            this.WorkerAddress.Width = 300;
+            // 
+            // WorkerPhone
+            // 
+            this.WorkerPhone.Text = "Телефон";
+            this.WorkerPhone.Width = 200;
+            // 
+            // WorkersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,29 +153,28 @@
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.bookLV);
+            this.Controls.Add(this.workerLV);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(900, 535);
             this.MinimumSize = new System.Drawing.Size(900, 535);
-            this.Name = "GivenBooksForm";
+            this.Name = "WorkersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GivenBooksForm";
-            this.Load += new System.EventHandler(this.GivenBooksForm_Load);
+            this.Text = "WorkersForm";
+            this.Load += new System.EventHandler(this.WorkersForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
         private MaterialSkin.Controls.MaterialButton updateButton;
         private MaterialSkin.Controls.MaterialButton removeButton;
         private MaterialSkin.Controls.MaterialButton addButton;
-        private MaterialSkin.Controls.MaterialListView bookLV;
-        private System.Windows.Forms.ColumnHeader GivenID;
-        private System.Windows.Forms.ColumnHeader BookName;
-        private System.Windows.Forms.ColumnHeader ReaderFullName;
-        private System.Windows.Forms.ColumnHeader DateStart;
-        private System.Windows.Forms.ColumnHeader DateEnd;
+        private MaterialSkin.Controls.MaterialListView workerLV;
+        private System.Windows.Forms.ColumnHeader IDWorker;
         private System.Windows.Forms.ColumnHeader WorkerFullName;
+        private System.Windows.Forms.ColumnHeader WorkerAddress;
+        private System.Windows.Forms.ColumnHeader WorkerPhone;
     }
 }

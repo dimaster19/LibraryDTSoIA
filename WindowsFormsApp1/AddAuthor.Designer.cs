@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAuthor));
             this.addLabel = new MaterialSkin.Controls.MaterialLabel();
             this.addTB = new MaterialSkin.Controls.MaterialTextBox();
             this.addButton = new MaterialSkin.Controls.MaterialButton();
@@ -53,7 +54,7 @@
             this.addTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.addTB.LeadingIcon = null;
             this.addTB.Location = new System.Drawing.Point(25, 152);
-            this.addTB.MaxLength = 50;
+            this.addTB.MaxLength = 40;
             this.addTB.MouseState = MaterialSkin.MouseState.OUT;
             this.addTB.Multiline = false;
             this.addTB.Name = "addTB";
@@ -90,6 +91,7 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.addTB);
             this.Controls.Add(this.addLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddAuthor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddAuthor";

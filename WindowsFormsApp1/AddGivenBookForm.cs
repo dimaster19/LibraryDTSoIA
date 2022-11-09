@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (dateStartTB.Text != "")
+            if (dateStartTB.Text != "" || dateEndTB.Text != "")
             {
                 if (updateID == 0)
                 {

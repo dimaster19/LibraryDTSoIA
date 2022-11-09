@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddGivenBookForm));
             this.workerCB = new MaterialSkin.Controls.MaterialComboBox();
             this.readerCB = new MaterialSkin.Controls.MaterialComboBox();
             this.bookCB = new MaterialSkin.Controls.MaterialComboBox();
@@ -237,6 +238,7 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.dateStartTB);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(533, 546);
             this.MinimumSize = new System.Drawing.Size(533, 546);
             this.Name = "AddGivenBookForm";

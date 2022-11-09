@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBookForm));
             this.bookNameTB = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -47,7 +48,7 @@
             this.bookNameTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.bookNameTB.LeadingIcon = null;
             this.bookNameTB.Location = new System.Drawing.Point(74, 118);
-            this.bookNameTB.MaxLength = 50;
+            this.bookNameTB.MaxLength = 40;
             this.bookNameTB.MouseState = MaterialSkin.MouseState.OUT;
             this.bookNameTB.Multiline = false;
             this.bookNameTB.Name = "bookNameTB";
@@ -204,6 +205,9 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.bookNameTB);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(533, 486);
+            this.MinimumSize = new System.Drawing.Size(533, 486);
             this.Name = "AddBookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBookForm";

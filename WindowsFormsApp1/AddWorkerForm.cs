@@ -12,38 +12,35 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class AddReaderForm : MaterialForm
+    public partial class AddWorkerForm : MaterialForm
     {
         int updateID = 0;
-        
-      
-        public AddReaderForm()
+        public AddWorkerForm()
         {
             InitializeComponent();
-            Text = $"Добавить читателя";
+            Text = $"Добавить сотрудника";
         }
-        public AddReaderForm(int id)
+        public AddWorkerForm(int id)
         {
             InitializeComponent();
             updateID = id;
-            Text = $"Изменить читателя #{id}";
+            Text = $"Изменить сотрудника #{id}";
         }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (nameTB.Text !="" ||  addressTB.Text !="" || phoneTB.Text !=""  )
+            if (nameTB.Text != "" || addressTB.Text != "" || phoneTB.Text != "")
             {
                 if (updateID == 0)
                 {
                     SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
 
-                    string query = "INSERT INTO Readers (ReaderFullName, ReaderAddress, ReaderPhone)";
-                    query += " VALUES (@ReaderFullName, @ReaderAddress, @ReaderPhone)";
+                    string query = "INSERT INTO Workers (WorkerFullName, WorkerAddress, WorkerPhone)";
+                    query += " VALUES (@WorkerFullName, @WorkerAddress, @WorkerPhone)";
 
                     SqlCommand myCommand = new SqlCommand(query, connection);
-                    myCommand.Parameters.AddWithValue("@ReaderFullName", nameTB.Text);
-                    myCommand.Parameters.AddWithValue("@ReaderAddress", addressTB.Text);
-                    myCommand.Parameters.AddWithValue("@ReaderPhone", phoneTB.Text);
+                    myCommand.Parameters.AddWithValue("@WorkerFullName", nameTB.Text);
+                    myCommand.Parameters.AddWithValue("@WorkerAddress", addressTB.Text);
+                    myCommand.Parameters.AddWithValue("@WorkerPhone", phoneTB.Text);
 
                     connection.Open();
 
@@ -62,12 +59,12 @@ namespace WindowsFormsApp1
                 else
                 {
                     SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-                    string query = "UPDATE Readers Set ReaderFullName = @ReaderFullName, ReaderAddress = @ReaderAddress, ReaderPhone = @ReaderPhone WHERE IDReader=@ID";
+                    string query = "UPDATE Workers Set WorkerFullName = @WorkerFullName, WorkerAddress = @WorkerAddress, WorkerPhone = @WorkerPhone WHERE IDWorker=@ID";
 
                     SqlCommand myCommand = new SqlCommand(query, connection);
-                    myCommand.Parameters.AddWithValue("@ReaderFullName", nameTB.Text);
-                    myCommand.Parameters.AddWithValue("@ReaderAddress", addressTB.Text);
-                    myCommand.Parameters.AddWithValue("@ReaderPhone", phoneTB.Text);
+                    myCommand.Parameters.AddWithValue("@WorkerFullName", nameTB.Text);
+                    myCommand.Parameters.AddWithValue("@WorkerAddress", addressTB.Text);
+                    myCommand.Parameters.AddWithValue("@WorkerPhone", phoneTB.Text);
                     myCommand.Parameters.AddWithValue("@ID", updateID);
                     connection.Open();
 
@@ -89,14 +86,13 @@ namespace WindowsFormsApp1
             else MessageBox.Show("Заполните все пустые поля");
         }
 
-        private void AddReaderForm_Load(object sender, EventArgs e)
+        private void AddWorkerForm_Load(object sender, EventArgs e)
         {
-
             if (updateID != 0)
             {
                 using (SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True"))
                 {
-                    string cmd = "select * from Readers where IDReader=@ID";
+                    string cmd = "select * from Workers where IDWorker=@ID";
                     SqlCommand cmd2 = new SqlCommand(cmd, connection);
                     cmd2.Parameters.AddWithValue("@ID", updateID);
                     connection.Open();
@@ -108,7 +104,6 @@ namespace WindowsFormsApp1
                     connection.Close();
                 }
             }
-
         }
     }
 }

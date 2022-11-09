@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksForm));
             this.authorIDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDataSet = new WindowsFormsApp1.LibraryDataSet();
@@ -271,6 +272,7 @@
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.bookLV);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(800, 535);
             this.MinimumSize = new System.Drawing.Size(800, 535);
             this.Name = "BooksForm";

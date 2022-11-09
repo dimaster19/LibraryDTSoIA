@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReadersForm));
             this.updateButton = new MaterialSkin.Controls.MaterialButton();
             this.removeButton = new MaterialSkin.Controls.MaterialButton();
             this.addButton = new MaterialSkin.Controls.MaterialButton();
-            this.bookLV = new MaterialSkin.Controls.MaterialListView();
+            this.readerLV = new MaterialSkin.Controls.MaterialListView();
             this.IDReader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ReaderFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ReaderAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -100,30 +101,30 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // bookLV
+            // readerLV
             // 
-            this.bookLV.AutoSizeTable = false;
-            this.bookLV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bookLV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bookLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.readerLV.AutoSizeTable = false;
+            this.readerLV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.readerLV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.readerLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDReader,
             this.ReaderFullName,
             this.ReaderAddress,
             this.ReaderPhone});
-            this.bookLV.Depth = 0;
-            this.bookLV.FullRowSelect = true;
-            this.bookLV.HideSelection = false;
-            this.bookLV.Location = new System.Drawing.Point(6, 91);
-            this.bookLV.MaximumSize = new System.Drawing.Size(767, 415);
-            this.bookLV.MinimumSize = new System.Drawing.Size(767, 415);
-            this.bookLV.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.bookLV.MouseState = MaterialSkin.MouseState.OUT;
-            this.bookLV.Name = "bookLV";
-            this.bookLV.OwnerDraw = true;
-            this.bookLV.Size = new System.Drawing.Size(767, 415);
-            this.bookLV.TabIndex = 17;
-            this.bookLV.UseCompatibleStateImageBehavior = false;
-            this.bookLV.View = System.Windows.Forms.View.Details;
+            this.readerLV.Depth = 0;
+            this.readerLV.FullRowSelect = true;
+            this.readerLV.HideSelection = false;
+            this.readerLV.Location = new System.Drawing.Point(6, 91);
+            this.readerLV.MaximumSize = new System.Drawing.Size(767, 415);
+            this.readerLV.MinimumSize = new System.Drawing.Size(767, 415);
+            this.readerLV.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.readerLV.MouseState = MaterialSkin.MouseState.OUT;
+            this.readerLV.Name = "readerLV";
+            this.readerLV.OwnerDraw = true;
+            this.readerLV.Size = new System.Drawing.Size(767, 415);
+            this.readerLV.TabIndex = 17;
+            this.readerLV.UseCompatibleStateImageBehavior = false;
+            this.readerLV.View = System.Windows.Forms.View.Details;
             // 
             // IDReader
             // 
@@ -152,7 +153,8 @@
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.bookLV);
+            this.Controls.Add(this.readerLV);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(900, 535);
             this.MinimumSize = new System.Drawing.Size(900, 535);
             this.Name = "ReadersForm";
@@ -169,7 +171,7 @@
         private MaterialSkin.Controls.MaterialButton updateButton;
         private MaterialSkin.Controls.MaterialButton removeButton;
         private MaterialSkin.Controls.MaterialButton addButton;
-        private MaterialSkin.Controls.MaterialListView bookLV;
+        private MaterialSkin.Controls.MaterialListView readerLV;
         private System.Windows.Forms.ColumnHeader IDReader;
         private System.Windows.Forms.ColumnHeader ReaderFullName;
         private System.Windows.Forms.ColumnHeader ReaderAddress;

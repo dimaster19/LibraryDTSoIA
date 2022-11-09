@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.2.2.3.1\lib\net461\MaterialSkin.dll</HintPath>
@@ -74,6 +77,12 @@
     <Compile Include="AddReaderForm.Designer.cs">
       <DependentUpon>AddReaderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddWorkerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWorkerForm.Designer.cs">
+      <DependentUpon>AddWorkerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GivenBooksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +114,12 @@
     <Compile Include="ReadersForm.Designer.cs">
       <DependentUpon>ReadersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkersForm.Designer.cs">
+      <DependentUpon>WorkersForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddAuthor.resx">
       <DependentUpon>AddAuthor.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddReaderForm.resx">
       <DependentUpon>AddReaderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddWorkerForm.resx">
+      <DependentUpon>AddWorkerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GivenBooksForm.resx">
       <DependentUpon>GivenBooksForm.cs</DependentUpon>
@@ -138,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="ReadersForm.resx">
       <DependentUpon>ReadersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkersForm.resx">
+      <DependentUpon>WorkersForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="LibraryDataSet.xsc">
       <DependentUpon>LibraryDataSet.xsd</DependentUpon>
@@ -175,6 +196,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-литература-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="Resources\icons8-l-64.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

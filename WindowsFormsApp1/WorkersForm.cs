@@ -12,33 +12,34 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ReadersForm : MaterialForm
+    public partial class WorkersForm : MaterialForm
     {
-        public ReadersForm()
+        public WorkersForm()
         {
             InitializeComponent();
-            Text = "Читатели";
+            Text = "Сотрудники";
         }
-        private void ReadersForm_Load(object sender, EventArgs e)
+
+        private void WorkersForm_Load(object sender, EventArgs e)
         {
-            RefreshData();  
-            
+            RefreshData();
         }
+
         private void RefreshData()
         {
-            readerLV.Items.Clear();
+            workerLV.Items.Clear();
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
             SqlDataReader dataReader = null;
             SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-            string cmd = $"SELECT * FROM Readers";
+            string cmd = $"SELECT * FROM Workers";
             connection.Open();
             dataReader = new SqlCommand(cmd, connection).ExecuteReader();
             ListViewItem item = null;
             while (dataReader.Read())
             {
-                item = new ListViewItem(new string[] { Convert.ToString(dataReader["IDReader"]), Convert.ToString(dataReader["ReaderFullName"]), Convert.ToString(dataReader["ReaderAddress"]), Convert.ToString(dataReader["ReaderPhone"]) });
-                readerLV.Items.Add(item);
+                item = new ListViewItem(new string[] { Convert.ToString(dataReader["IDWorker"]), Convert.ToString(dataReader["WorkerFullName"]), Convert.ToString(dataReader["WorkerAddress"]), Convert.ToString(dataReader["WorkerPhone"]) });
+                workerLV.Items.Add(item);
             }
             da.Dispose();
             connection.Close();
@@ -47,48 +48,46 @@ namespace WindowsFormsApp1
         }
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddReaderForm addReaderForm = new AddReaderForm();
-            addReaderForm.ShowDialog();
+            AddWorkerForm addWorkerForm = new AddWorkerForm();
+            addWorkerForm.ShowDialog();
             RefreshData();
+
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-  
+
             try
             {
-                foreach (int i in readerLV.SelectedIndices)
+                foreach (int i in workerLV.SelectedIndices)
                 {
                     SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-                    string temp = readerLV.Items[i].Text; 
-                    string cmd = "delete from Readers where IDReader='" + temp + "'";
+                    string temp = workerLV.Items[i].Text;
+                    string cmd = "delete from Workers where IDWorker='" + temp + "'";
                     SqlCommand myCommand = new SqlCommand(cmd, connection);
                     connection.Open();
                     myCommand.ExecuteNonQuery();
-                    readerLV.Items.Remove(readerLV.Items[i]);
+                    workerLV.Items.Remove(workerLV.Items[i]);
                     RefreshData();
                 }
-              
+
             }
             catch (System.Data.SqlClient.SqlException ex)
             {
-                MessageBox.Show("УДАЛИТЕ или ИЗМЕНИТЕ все поля таблиц, в которых используется этот читатель. \n\n", "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("УДАЛИТЕ или ИЗМЕНИТЕ все поля таблиц, в которых используется этот работник. \n\n", "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            foreach(int i in readerLV.SelectedIndices)
+            foreach (int i in workerLV.SelectedIndices)
             {
 
-                int id = int.Parse(readerLV.Items[i].Text);
-                AddReaderForm addReaderForm = new AddReaderForm(id);
-                addReaderForm.ShowDialog();
+                int id = int.Parse(workerLV.Items[i].Text);
+                AddWorkerForm addWorkerForm = new AddWorkerForm(id);
+                addWorkerForm.ShowDialog();
                 RefreshData();
             }
         }
-
-       
     }
 }

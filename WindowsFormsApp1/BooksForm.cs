@@ -74,20 +74,26 @@ namespace WindowsFormsApp1
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
-           
-             foreach (int i in bookLV.SelectedIndices)
-             {
+            
+            try { 
+                foreach (int i in bookLV.SelectedIndices)
+                 {
                     SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
                     string temp = bookLV.Items[i].Text;
-                    bookLV.Items.Remove(bookLV.Items[i]);
                     string cmd = "delete from Books where BookID='" + temp + "'";
                     SqlCommand myCommand = new SqlCommand(cmd, connection);
                     connection.Open();
                     myCommand.ExecuteNonQuery();
-             }
+                    bookLV.Items.Remove(bookLV.Items[i]);
+                }
  
             RefreshData();
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                MessageBox.Show("УДАЛИТЕ или ИЗМЕНИТЕ все поля таблиц, в которых используется эта книга. \n\n", "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void updateButton_Click(object sender, EventArgs e)
