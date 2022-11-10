@@ -191,7 +191,7 @@ namespace WindowsFormsApp1
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.ToString(), "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             finally
@@ -234,7 +234,7 @@ namespace WindowsFormsApp1
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.ToString(), "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
             }
