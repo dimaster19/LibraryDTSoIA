@@ -14,22 +14,33 @@ namespace WindowsFormsApp1
 {
     public partial class MainForm : MaterialForm
     {
+        private readonly CheckUser _user;
+        
         public MainForm()
         {
             InitializeComponent();
+        }
+        public MainForm(CheckUser user)
+        {
+            InitializeComponent();
             Text = "Главная";
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Brown700, Primary.Brown800, Primary.Brown500, Accent.LightBlue700, TextShade.WHITE);
+            _user = user;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if(_user.IsAdmin == true)
+            {
+                materialLabel1.Text = _user.Login + " (Админ)";
+            }
+            else
+            {
+                materialButton3.Enabled = false;
+                materialLabel1.Text = _user.Login + " (Пользователь)";
 
+            }
         }
 
-       
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
@@ -66,9 +77,9 @@ namespace WindowsFormsApp1
 
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+         
         }
     }
 }

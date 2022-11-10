@@ -33,6 +33,7 @@
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
             this.givenBooksButton = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // materialButton1
@@ -64,7 +65,7 @@
             this.materialButton2.Depth = 0;
             this.materialButton2.HighEmphasis = true;
             this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(149, 163);
+            this.materialButton2.Location = new System.Drawing.Point(149, 204);
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
@@ -85,7 +86,7 @@
             this.materialButton3.Depth = 0;
             this.materialButton3.HighEmphasis = true;
             this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(149, 222);
+            this.materialButton3.Location = new System.Drawing.Point(149, 252);
             this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton3.Name = "materialButton3";
@@ -106,7 +107,7 @@
             this.givenBooksButton.Depth = 0;
             this.givenBooksButton.HighEmphasis = true;
             this.givenBooksButton.Icon = null;
-            this.givenBooksButton.Location = new System.Drawing.Point(149, 280);
+            this.givenBooksButton.Location = new System.Drawing.Point(149, 156);
             this.givenBooksButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.givenBooksButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.givenBooksButton.Name = "givenBooksButton";
@@ -119,11 +120,24 @@
             this.givenBooksButton.UseVisualStyleBackColor = true;
             this.givenBooksButton.Click += new System.EventHandler(this.givenBooksButton_Click);
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(6, 64);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(107, 19);
+            this.materialLabel1.TabIndex = 7;
+            this.materialLabel1.Text = "materialLabel1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 360);
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.givenBooksButton);
             this.Controls.Add(this.materialButton3);
             this.Controls.Add(this.materialButton2);
@@ -134,9 +148,10 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главная";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -145,6 +160,7 @@
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialButton materialButton3;
         private MaterialSkin.Controls.MaterialButton givenBooksButton;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
 

@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
                     catch (Exception)
                     {
                         MessageBox.Show("Одно из полей заполнено не верно!");
-                        return;
+                       
                     }
                     finally
                     {
