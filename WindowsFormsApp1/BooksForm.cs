@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
 {
     public partial class BooksForm : MaterialForm
     {
+
         public BooksForm()
         {
             InitializeComponent();
@@ -74,11 +75,12 @@ namespace WindowsFormsApp1
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
             try { 
+                
                 foreach (int i in bookLV.SelectedIndices)
                  {
-                    SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+                    
                     string temp = bookLV.Items[i].Text;
                     string cmd = "delete from Books where BookID='" + temp + "'";
                     SqlCommand myCommand = new SqlCommand(cmd, connection);
@@ -92,6 +94,10 @@ namespace WindowsFormsApp1
             catch (System.Data.SqlClient.SqlException ex)
             {
                 MessageBox.Show("УДАЛИТЕ или ИЗМЕНИТЕ все поля таблиц, в которых используется эта книга. \n\n", "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
             }
 
         }
@@ -152,6 +158,91 @@ namespace WindowsFormsApp1
         {
             DiagrammBookForm diag = new DiagrammBookForm(2);
             diag.ShowDialog();
+        }
+
+        private void nameCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bookLV.Items.Clear();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlDataReader dataReader;
+            string cmd;
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+            try
+            {
+                using (connection)
+                {
+
+                    cmd = string.Format("SELECT Books.BookID, Books.BookName, Authors.AuthorFullName, Genres.GenreName, Publishers.PublisherFullName FROM books left join Authors ON Books.AuthorID = Authors.IDAuthor left join Genres ON Books.GenreID = Genres.IDGenre left join Publishers ON Books.PublisherID = Publishers.IDPublisher WHERE Books.BookName like N'%" + findTextBox.Text + "%' ");
+                    connection.Open();
+                    
+                    ListViewItem item = null;
+                    dataReader = new SqlCommand(cmd, connection).ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        item = new ListViewItem(new string[] { Convert.ToString(dataReader["BookID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["AuthorFullName"]), Convert.ToString(dataReader["GenreName"]), Convert.ToString(dataReader["PublisherFullName"]) });
+                        bookLV.Items.Add(item);
+                    }
+                    da.Dispose();
+                    connection.Close();
+                    ds.Dispose();
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+           
+        }
+
+        private void authorCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bookLV.Items.Clear();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlDataReader dataReader;
+            string cmd;
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+            try
+            {
+                using (connection)
+                {
+
+                    cmd = string.Format("SELECT Books.BookID, Books.BookName, Authors.AuthorFullName, Genres.GenreName, Publishers.PublisherFullName FROM books left join Authors ON Books.AuthorID = Authors.IDAuthor left join Genres ON Books.GenreID = Genres.IDGenre left join Publishers ON Books.PublisherID = Publishers.IDPublisher WHERE AuthorFullName like N'%" + findTextBox.Text + "%' ");
+                    connection.Open();
+                    ListViewItem item = null;
+                    dataReader = new SqlCommand(cmd, connection).ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        item = new ListViewItem(new string[] { Convert.ToString(dataReader["BookID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["AuthorFullName"]), Convert.ToString(dataReader["GenreName"]), Convert.ToString(dataReader["PublisherFullName"]) });
+                        bookLV.Items.Add(item);
+                    }
+                    da.Dispose();
+                    connection.Close();
+                    ds.Dispose();
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+           
         }
     }
 }

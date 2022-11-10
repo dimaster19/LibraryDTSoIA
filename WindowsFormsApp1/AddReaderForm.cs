@@ -56,7 +56,11 @@ namespace WindowsFormsApp1
                         MessageBox.Show("Одно из полей заполнено не верно!");
                         return;
                     }
-                    connection.Close();
+                    finally
+                    {
+                        connection.Close();
+
+                    }
                 }
 
                 else
@@ -80,7 +84,11 @@ namespace WindowsFormsApp1
                         MessageBox.Show("Одно из полей заполнено не верно!");
                         return;
                     }
-                    connection.Close();
+                    finally
+                    {
+                        connection.Close();
+
+                    }
                 }
 
                 DialogResult = System.Windows.Forms.DialogResult.OK;

@@ -55,7 +55,8 @@ namespace WindowsFormsApp1
                         MessageBox.Show("Поле заполнено не верно!");
                         return;
                     }
-                    connection.Close();
+                    finally { connection.Close(); }
+                   
                 }
                 else if (addID == 1)
                 {
@@ -77,7 +78,11 @@ namespace WindowsFormsApp1
                         MessageBox.Show("Поле заполнено не верно!");
                         return;
                     }
-                    connection.Close();
+                    finally
+                    {
+                        connection.Close();
+
+                    }
                 }
                 else
                 {
@@ -99,7 +104,8 @@ namespace WindowsFormsApp1
                         MessageBox.Show("Поле заполнено не верно!");
                         return;
                     }
-                    connection.Close();
+                    finally { connection.Close(); }
+                    
 
                 }
                 DialogResult = System.Windows.Forms.DialogResult.OK;

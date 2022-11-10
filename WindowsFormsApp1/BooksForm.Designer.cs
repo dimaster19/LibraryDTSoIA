@@ -51,6 +51,9 @@
             this.pcAuthorsButton = new MaterialSkin.Controls.MaterialButton();
             this.pcPublishersButton = new MaterialSkin.Controls.MaterialButton();
             this.pcGenresButton = new MaterialSkin.Controls.MaterialButton();
+            this.findTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.authorCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
+            this.nameCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
             ((System.ComponentModel.ISupportInitialize)(this.authorIDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
@@ -99,7 +102,7 @@
             this.bookLV.Depth = 0;
             this.bookLV.FullRowSelect = true;
             this.bookLV.HideSelection = false;
-            this.bookLV.Location = new System.Drawing.Point(7, 93);
+            this.bookLV.Location = new System.Drawing.Point(13, 115);
             this.bookLV.MaximumSize = new System.Drawing.Size(667, 372);
             this.bookLV.MinimumSize = new System.Drawing.Size(667, 372);
             this.bookLV.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -146,7 +149,7 @@
             this.addButton.Depth = 0;
             this.addButton.HighEmphasis = true;
             this.addButton.Icon = null;
-            this.addButton.Location = new System.Drawing.Point(692, 192);
+            this.addButton.Location = new System.Drawing.Point(13, 70);
             this.addButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.addButton.Name = "addButton";
@@ -167,7 +170,7 @@
             this.removeButton.Depth = 0;
             this.removeButton.HighEmphasis = true;
             this.removeButton.Icon = null;
-            this.removeButton.Location = new System.Drawing.Point(692, 240);
+            this.removeButton.Location = new System.Drawing.Point(295, 70);
             this.removeButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.removeButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.removeButton.Name = "removeButton";
@@ -187,7 +190,7 @@
             this.updateButton.Depth = 0;
             this.updateButton.HighEmphasis = true;
             this.updateButton.Icon = null;
-            this.updateButton.Location = new System.Drawing.Point(692, 288);
+            this.updateButton.Location = new System.Drawing.Point(578, 70);
             this.updateButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.updateButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.updateButton.Name = "updateButton";
@@ -208,7 +211,7 @@
             this.addAuthor.Depth = 0;
             this.addAuthor.HighEmphasis = true;
             this.addAuthor.Icon = null;
-            this.addAuthor.Location = new System.Drawing.Point(8, 480);
+            this.addAuthor.Location = new System.Drawing.Point(13, 604);
             this.addAuthor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addAuthor.MouseState = MaterialSkin.MouseState.HOVER;
             this.addAuthor.Name = "addAuthor";
@@ -229,7 +232,7 @@
             this.addPublisher.Depth = 0;
             this.addPublisher.HighEmphasis = true;
             this.addPublisher.Icon = null;
-            this.addPublisher.Location = new System.Drawing.Point(254, 480);
+            this.addPublisher.Location = new System.Drawing.Point(259, 604);
             this.addPublisher.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addPublisher.MouseState = MaterialSkin.MouseState.HOVER;
             this.addPublisher.Name = "addPublisher";
@@ -250,7 +253,7 @@
             this.addGenre.Depth = 0;
             this.addGenre.HighEmphasis = true;
             this.addGenre.Icon = null;
-            this.addGenre.Location = new System.Drawing.Point(493, 480);
+            this.addGenre.Location = new System.Drawing.Point(498, 604);
             this.addGenre.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addGenre.MouseState = MaterialSkin.MouseState.HOVER;
             this.addGenre.Name = "addGenre";
@@ -271,7 +274,7 @@
             this.pcAuthorsButton.Depth = 0;
             this.pcAuthorsButton.HighEmphasis = true;
             this.pcAuthorsButton.Icon = null;
-            this.pcAuthorsButton.Location = new System.Drawing.Point(8, 528);
+            this.pcAuthorsButton.Location = new System.Drawing.Point(13, 652);
             this.pcAuthorsButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pcAuthorsButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.pcAuthorsButton.Name = "pcAuthorsButton";
@@ -292,7 +295,7 @@
             this.pcPublishersButton.Depth = 0;
             this.pcPublishersButton.HighEmphasis = true;
             this.pcPublishersButton.Icon = null;
-            this.pcPublishersButton.Location = new System.Drawing.Point(254, 528);
+            this.pcPublishersButton.Location = new System.Drawing.Point(259, 652);
             this.pcPublishersButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pcPublishersButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.pcPublishersButton.Name = "pcPublishersButton";
@@ -313,7 +316,7 @@
             this.pcGenresButton.Depth = 0;
             this.pcGenresButton.HighEmphasis = true;
             this.pcGenresButton.Icon = null;
-            this.pcGenresButton.Location = new System.Drawing.Point(493, 528);
+            this.pcGenresButton.Location = new System.Drawing.Point(498, 652);
             this.pcGenresButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pcGenresButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.pcGenresButton.Name = "pcGenresButton";
@@ -326,11 +329,65 @@
             this.pcGenresButton.UseVisualStyleBackColor = true;
             this.pcGenresButton.Click += new System.EventHandler(this.pcGenresButton_Click);
             // 
+            // findTextBox
+            // 
+            this.findTextBox.AnimateReadOnly = false;
+            this.findTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.findTextBox.Depth = 0;
+            this.findTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.findTextBox.LeadingIcon = null;
+            this.findTextBox.Location = new System.Drawing.Point(13, 533);
+            this.findTextBox.MaxLength = 50;
+            this.findTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.findTextBox.Multiline = false;
+            this.findTextBox.Name = "findTextBox";
+            this.findTextBox.Size = new System.Drawing.Size(667, 50);
+            this.findTextBox.TabIndex = 17;
+            this.findTextBox.Text = "";
+            this.findTextBox.TrailingIcon = null;
+            // 
+            // authorCheckBox
+            // 
+            this.authorCheckBox.AutoSize = true;
+            this.authorCheckBox.Depth = 0;
+            this.authorCheckBox.Location = new System.Drawing.Point(432, 490);
+            this.authorCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.authorCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.authorCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.authorCheckBox.Name = "authorCheckBox";
+            this.authorCheckBox.ReadOnly = false;
+            this.authorCheckBox.Ripple = true;
+            this.authorCheckBox.Size = new System.Drawing.Size(159, 37);
+            this.authorCheckBox.TabIndex = 20;
+            this.authorCheckBox.Text = "Поиск по автору";
+            this.authorCheckBox.UseVisualStyleBackColor = true;
+            this.authorCheckBox.CheckedChanged += new System.EventHandler(this.authorCheckBox_CheckedChanged);
+            // 
+            // nameCheckBox
+            // 
+            this.nameCheckBox.AutoSize = true;
+            this.nameCheckBox.Depth = 0;
+            this.nameCheckBox.Location = new System.Drawing.Point(83, 493);
+            this.nameCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.nameCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.nameCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.nameCheckBox.Name = "nameCheckBox";
+            this.nameCheckBox.ReadOnly = false;
+            this.nameCheckBox.Ripple = true;
+            this.nameCheckBox.Size = new System.Drawing.Size(182, 37);
+            this.nameCheckBox.TabIndex = 21;
+            this.nameCheckBox.Text = "Поиск по названию";
+            this.nameCheckBox.UseVisualStyleBackColor = true;
+            this.nameCheckBox.CheckedChanged += new System.EventHandler(this.nameCheckBox_CheckedChanged);
+            // 
             // BooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 583);
+            this.ClientSize = new System.Drawing.Size(693, 698);
+            this.Controls.Add(this.nameCheckBox);
+            this.Controls.Add(this.authorCheckBox);
+            this.Controls.Add(this.findTextBox);
             this.Controls.Add(this.pcGenresButton);
             this.Controls.Add(this.pcPublishersButton);
             this.Controls.Add(this.pcAuthorsButton);
@@ -342,8 +399,8 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.bookLV);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(800, 583);
-            this.MinimumSize = new System.Drawing.Size(800, 583);
+            this.MaximumSize = new System.Drawing.Size(693, 698);
+            this.MinimumSize = new System.Drawing.Size(693, 698);
             this.Name = "BooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
@@ -380,5 +437,8 @@
         private MaterialSkin.Controls.MaterialButton pcAuthorsButton;
         private MaterialSkin.Controls.MaterialButton pcPublishersButton;
         private MaterialSkin.Controls.MaterialButton pcGenresButton;
+        private MaterialSkin.Controls.MaterialTextBox findTextBox;
+        private MaterialSkin.Controls.MaterialCheckbox authorCheckBox;
+        private MaterialSkin.Controls.MaterialCheckbox nameCheckBox;
     }
 }

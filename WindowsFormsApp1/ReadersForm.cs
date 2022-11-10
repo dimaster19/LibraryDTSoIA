@@ -54,12 +54,12 @@ namespace WindowsFormsApp1
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-  
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+
             try
             {
                 foreach (int i in readerLV.SelectedIndices)
                 {
-                    SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
                     string temp = readerLV.Items[i].Text; 
                     string cmd = "delete from Readers where IDReader='" + temp + "'";
                     SqlCommand myCommand = new SqlCommand(cmd, connection);
@@ -73,6 +73,10 @@ namespace WindowsFormsApp1
             catch (System.Data.SqlClient.SqlException ex)
             {
                 MessageBox.Show("УДАЛИТЕ или ИЗМЕНИТЕ все поля таблиц, в которых используется этот читатель. \n\n", "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
             }
             
         }

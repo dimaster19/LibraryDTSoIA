@@ -56,12 +56,12 @@ namespace WindowsFormsApp1
 
         private void removeButton_Click(object sender, EventArgs e)
         {
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
 
             try
             {
                 foreach (int i in workerLV.SelectedIndices)
                 {
-                    SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
                     string temp = workerLV.Items[i].Text;
                     string cmd = "delete from Workers where IDWorker='" + temp + "'";
                     SqlCommand myCommand = new SqlCommand(cmd, connection);
@@ -75,6 +75,10 @@ namespace WindowsFormsApp1
             catch (System.Data.SqlClient.SqlException ex)
             {
                 MessageBox.Show("УДАЛИТЕ или ИЗМЕНИТЕ все поля таблиц, в которых используется этот работник. \n\n", "Ошибка связи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
