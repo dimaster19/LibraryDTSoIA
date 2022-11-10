@@ -90,7 +90,7 @@
             this.regButton.Depth = 0;
             this.regButton.HighEmphasis = true;
             this.regButton.Icon = null;
-            this.regButton.Location = new System.Drawing.Point(116, 400);
+            this.regButton.Location = new System.Drawing.Point(116, 392);
             this.regButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.regButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.regButton.Name = "regButton";
@@ -98,7 +98,7 @@
             this.regButton.Size = new System.Drawing.Size(173, 36);
             this.regButton.TabIndex = 6;
             this.regButton.Text = "Зарегистрироваться";
-            this.regButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.regButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
             this.regButton.UseAccentColor = false;
             this.regButton.UseVisualStyleBackColor = true;
             this.regButton.Click += new System.EventHandler(this.regButton_Click);
@@ -125,7 +125,7 @@
             this.passwordTB.AnimateReadOnly = false;
             this.passwordTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTB.Depth = 0;
-            this.passwordTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passwordTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.passwordTB.LeadingIcon = null;
             this.passwordTB.Location = new System.Drawing.Point(29, 236);
             this.passwordTB.MaxLength = 50;
@@ -155,6 +155,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuthForm_FormClosing);
+            this.Load += new System.EventHandler(this.AuthForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -91,5 +91,10 @@ namespace WindowsFormsApp1
         {
             
         }
+
+        private void AuthForm_Load(object sender, EventArgs e)
+        {
+            passwordTB.Password = true;
+        }
     }
 }
