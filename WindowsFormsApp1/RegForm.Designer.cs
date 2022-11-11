@@ -44,7 +44,7 @@
             this.loginTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.loginTB.LeadingIcon = null;
             this.loginTB.Location = new System.Drawing.Point(32, 144);
-            this.loginTB.MaxLength = 50;
+            this.loginTB.MaxLength = 20;
             this.loginTB.MouseState = MaterialSkin.MouseState.OUT;
             this.loginTB.Multiline = false;
             this.loginTB.Name = "loginTB";
@@ -58,10 +58,10 @@
             this.passwordTB.AnimateReadOnly = false;
             this.passwordTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTB.Depth = 0;
-            this.passwordTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passwordTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.passwordTB.LeadingIcon = null;
             this.passwordTB.Location = new System.Drawing.Point(32, 231);
-            this.passwordTB.MaxLength = 50;
+            this.passwordTB.MaxLength = 20;
             this.passwordTB.MouseState = MaterialSkin.MouseState.OUT;
             this.passwordTB.Multiline = false;
             this.passwordTB.Name = "passwordTB";
