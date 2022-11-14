@@ -93,5 +93,46 @@ namespace WindowsFormsApp1
                 RefreshData();
             }
         }
+
+        private void nameCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            workerLV.Items.Clear();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlDataReader dataReader;
+            string cmd;
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+            try
+            {
+                using (connection)
+                {
+
+                    cmd = string.Format("SELECT * FROM Workers WHERE Workers.WorkerFullName like N'%" + findTextBox.Text + "%' ");
+                    connection.Open();
+
+                    ListViewItem item = null;
+                    dataReader = new SqlCommand(cmd, connection).ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        item = new ListViewItem(new string[] { Convert.ToString(dataReader["IDWorker"]), Convert.ToString(dataReader["WorkerFullName"]), Convert.ToString(dataReader["WorkerAddress"]), Convert.ToString(dataReader["WorkerPhone"]) });
+                        workerLV.Items.Add(item);
+                    }
+                    da.Dispose();
+                    connection.Close();
+                    ds.Dispose();
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+        }
     }
 }

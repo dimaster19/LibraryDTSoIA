@@ -85,5 +85,90 @@ namespace WindowsFormsApp1
             }
 
         }
+
+        private void workerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bookLV.Items.Clear();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlDataReader dataReader;
+            string cmd;
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+            try
+            {
+                using (connection)
+                {
+
+                    cmd = string.Format("SELECT GivenBooks.GivenID, Books.BookName, Readers.ReaderFullName, GivenBooks.DateStart, GivenBooks.DateEnd,  Workers.WorkerFullName FROM GivenBooks left join Books ON GivenBooks.BookID = Books.BookID left join Readers ON GivenBooks.ReaderID = Readers.IDReader left join Workers ON GivenBooks.WorkerID = Workers.IDWorker where Workers.WorkerFullName like N'%" + findTextBox.Text + "%' ");
+                    connection.Open();
+
+                    ListViewItem item = null;
+                    dataReader = new SqlCommand(cmd, connection).ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        item = new ListViewItem(new string[] { Convert.ToString(dataReader["GivenID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["ReaderFullName"]), Convert.ToString(dataReader["DateStart"]), Convert.ToString(dataReader["DateEnd"]), Convert.ToString(dataReader["WorkerFullName"]) });
+                        bookLV.Items.Add(item);
+                    }
+                    da.Dispose();
+                    connection.Close();
+                    ds.Dispose();
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+        }
+
+        private void readerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bookLV.Items.Clear();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlDataReader dataReader;
+            string cmd;
+            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+            try
+            {
+                using (connection)
+                {
+
+                    cmd = string.Format("SELECT GivenBooks.GivenID, Books.BookName,Readers.ReaderFullName, GivenBooks.DateStart, GivenBooks.DateEnd,  Workers.WorkerFullName FROM GivenBooks left join Books ON GivenBooks.BookID = Books.BookID left join Readers ON GivenBooks.ReaderID = Readers.IDReader left join Workers ON GivenBooks.WorkerID = Workers.IDWorker where Readers.ReaderFullName like N'%" + findTextBox.Text + "%' ");
+                    connection.Open();
+                    ListViewItem item = null;
+                    dataReader = new SqlCommand(cmd, connection).ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        item = new ListViewItem(new string[] { Convert.ToString(dataReader["GivenID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["ReaderFullName"]), Convert.ToString(dataReader["DateStart"]), Convert.ToString(dataReader["DateEnd"]), Convert.ToString(dataReader["WorkerFullName"]) });
+                        bookLV.Items.Add(item);
+                    }
+                    da.Dispose();
+                    connection.Close();
+                    ds.Dispose();
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+        }
     }
 }

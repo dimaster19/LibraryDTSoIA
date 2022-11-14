@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace WindowsFormsApp1 {
+namespace LibraryApp {
     
     
     /// <summary>
@@ -2860,7 +2860,7 @@ namespace WindowsFormsApp1 {
         }
     }
 }
-namespace WindowsFormsApp1.LibraryDataSetTableAdapters {
+namespace LibraryApp.LibraryDataSetTableAdapters {
     
     
     /// <summary>
@@ -3017,7 +3017,7 @@ namespace WindowsFormsApp1.LibraryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApp1.Properties.Settings.Default.LibraryConnectionString;
+            this._connection.ConnectionString = global::LibraryApp.Properties.Settings.Default.LibraryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3353,7 +3353,7 @@ SELECT BookID, AuthorID, PostedID, TypeID, Name FROM Books WHERE (BookID = @Book
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApp1.Properties.Settings.Default.LibraryConnectionString;
+            this._connection.ConnectionString = global::LibraryApp.Properties.Settings.Default.LibraryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3690,7 +3690,7 @@ SELECT UserID, Name, Address FROM BookTickets WHERE (UserID = @UserID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApp1.Properties.Settings.Default.LibraryConnectionString;
+            this._connection.ConnectionString = global::LibraryApp.Properties.Settings.Default.LibraryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4034,7 +4034,7 @@ SELECT UserID, Name, Address FROM BookTickets WHERE (UserID = @UserID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApp1.Properties.Settings.Default.LibraryConnectionString;
+            this._connection.ConnectionString = global::LibraryApp.Properties.Settings.Default.LibraryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4371,7 +4371,7 @@ SELECT RequestID, BookID, UserID, DateGive, DateHave FROM RequestBooks WHERE (Re
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApp1.Properties.Settings.Default.LibraryConnectionString;
+            this._connection.ConnectionString = global::LibraryApp.Properties.Settings.Default.LibraryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4683,7 +4683,7 @@ SELECT RequestID, BookID, UserID, DateGive, DateHave FROM RequestBooks WHERE (Re
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApp1.Properties.Settings.Default.LibraryConnectionString;
+            this._connection.ConnectionString = global::LibraryApp.Properties.Settings.Default.LibraryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

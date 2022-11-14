@@ -32,10 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksForm));
             this.authorIDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryDataSet = new WindowsFormsApp1.LibraryDataSet();
             this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.booksTableAdapter = new WindowsFormsApp1.LibraryDataSetTableAdapters.BooksTableAdapter();
-            this.authorIDTableAdapter = new WindowsFormsApp1.LibraryDataSetTableAdapters.AuthorIDTableAdapter();
             this.bookLV = new MaterialSkin.Controls.MaterialListView();
             this.BookID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BookName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,37 +53,16 @@
             this.nameCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
             ((System.ComponentModel.ISupportInitialize)(this.authorIDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // authorIDBindingSource
             // 
-            this.authorIDBindingSource.DataMember = "AuthorID";
             this.authorIDBindingSource.DataSource = this.libraryDataSetBindingSource;
-            // 
-            // libraryDataSetBindingSource
-            // 
-            this.libraryDataSetBindingSource.DataSource = this.libraryDataSet;
-            this.libraryDataSetBindingSource.Position = 0;
-            // 
-            // libraryDataSet
-            // 
-            this.libraryDataSet.DataSetName = "LibraryDataSet";
-            this.libraryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // booksBindingSource
             // 
-            this.booksBindingSource.DataMember = "Books";
             this.booksBindingSource.DataSource = this.libraryDataSetBindingSource;
-            // 
-            // booksTableAdapter
-            // 
-            this.booksTableAdapter.ClearBeforeFill = true;
-            // 
-            // authorIDTableAdapter
-            // 
-            this.authorIDTableAdapter.ClearBeforeFill = true;
             // 
             // bookLV
             // 
@@ -408,7 +384,6 @@
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.authorIDBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -417,11 +392,8 @@
 
         #endregion
         private System.Windows.Forms.BindingSource libraryDataSetBindingSource;
-        private LibraryDataSet libraryDataSet;
         private System.Windows.Forms.BindingSource booksBindingSource;
-        private LibraryDataSetTableAdapters.BooksTableAdapter booksTableAdapter;
         private System.Windows.Forms.BindingSource authorIDBindingSource;
-        private LibraryDataSetTableAdapters.AuthorIDTableAdapter authorIDTableAdapter;
         private MaterialSkin.Controls.MaterialListView bookLV;
         private System.Windows.Forms.ColumnHeader BookID;
         private System.Windows.Forms.ColumnHeader Author;

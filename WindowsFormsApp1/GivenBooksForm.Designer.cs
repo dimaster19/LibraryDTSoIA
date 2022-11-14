@@ -39,6 +39,9 @@
             this.DateStart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DateEnd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.WorkerFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.readerCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
+            this.workerCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
+            this.findTextBox = new MaterialSkin.Controls.MaterialTextBox();
             this.SuspendLayout();
             // 
             // updateButton
@@ -159,18 +162,72 @@
             this.WorkerFullName.Text = "Работник";
             this.WorkerFullName.Width = 120;
             // 
+            // readerCheckBox
+            // 
+            this.readerCheckBox.AutoSize = true;
+            this.readerCheckBox.Depth = 0;
+            this.readerCheckBox.Location = new System.Drawing.Point(126, 512);
+            this.readerCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.readerCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.readerCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.readerCheckBox.Name = "readerCheckBox";
+            this.readerCheckBox.ReadOnly = false;
+            this.readerCheckBox.Ripple = true;
+            this.readerCheckBox.Size = new System.Drawing.Size(180, 37);
+            this.readerCheckBox.TabIndex = 24;
+            this.readerCheckBox.Text = "Поиск по читателю";
+            this.readerCheckBox.UseVisualStyleBackColor = true;
+            this.readerCheckBox.CheckedChanged += new System.EventHandler(this.readerCheckBox_CheckedChanged);
+            // 
+            // workerCheckBox
+            // 
+            this.workerCheckBox.AutoSize = true;
+            this.workerCheckBox.Depth = 0;
+            this.workerCheckBox.Location = new System.Drawing.Point(475, 509);
+            this.workerCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.workerCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.workerCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.workerCheckBox.Name = "workerCheckBox";
+            this.workerCheckBox.ReadOnly = false;
+            this.workerCheckBox.Ripple = true;
+            this.workerCheckBox.Size = new System.Drawing.Size(186, 37);
+            this.workerCheckBox.TabIndex = 23;
+            this.workerCheckBox.Text = "Поиск по работнику";
+            this.workerCheckBox.UseVisualStyleBackColor = true;
+            this.workerCheckBox.CheckedChanged += new System.EventHandler(this.workerCheckBox_CheckedChanged);
+            // 
+            // findTextBox
+            // 
+            this.findTextBox.AnimateReadOnly = false;
+            this.findTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.findTextBox.Depth = 0;
+            this.findTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.findTextBox.LeadingIcon = null;
+            this.findTextBox.Location = new System.Drawing.Point(56, 552);
+            this.findTextBox.MaxLength = 50;
+            this.findTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.findTextBox.Multiline = false;
+            this.findTextBox.Name = "findTextBox";
+            this.findTextBox.Size = new System.Drawing.Size(667, 50);
+            this.findTextBox.TabIndex = 22;
+            this.findTextBox.Text = "";
+            this.findTextBox.TrailingIcon = null;
+            // 
             // GivenBooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 535);
+            this.ClientSize = new System.Drawing.Size(900, 616);
+            this.Controls.Add(this.readerCheckBox);
+            this.Controls.Add(this.workerCheckBox);
+            this.Controls.Add(this.findTextBox);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.bookLV);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(900, 535);
-            this.MinimumSize = new System.Drawing.Size(900, 535);
+            this.MaximumSize = new System.Drawing.Size(900, 616);
+            this.MinimumSize = new System.Drawing.Size(900, 616);
             this.Name = "GivenBooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GivenBooksForm";
@@ -191,5 +248,8 @@
         private System.Windows.Forms.ColumnHeader DateStart;
         private System.Windows.Forms.ColumnHeader DateEnd;
         private System.Windows.Forms.ColumnHeader WorkerFullName;
+        private MaterialSkin.Controls.MaterialCheckbox readerCheckBox;
+        private MaterialSkin.Controls.MaterialCheckbox workerCheckBox;
+        private MaterialSkin.Controls.MaterialTextBox findTextBox;
     }
 }

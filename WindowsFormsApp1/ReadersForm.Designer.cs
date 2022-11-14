@@ -37,6 +37,8 @@
             this.ReaderFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ReaderAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ReaderPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nameCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
+            this.findTextBox = new MaterialSkin.Controls.MaterialTextBox();
             this.SuspendLayout();
             // 
             // updateButton
@@ -145,18 +147,54 @@
             this.ReaderPhone.Text = "Телефон";
             this.ReaderPhone.Width = 200;
             // 
+            // nameCheckBox
+            // 
+            this.nameCheckBox.AutoSize = true;
+            this.nameCheckBox.Depth = 0;
+            this.nameCheckBox.Location = new System.Drawing.Point(619, 537);
+            this.nameCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.nameCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.nameCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.nameCheckBox.Name = "nameCheckBox";
+            this.nameCheckBox.ReadOnly = false;
+            this.nameCheckBox.Ripple = true;
+            this.nameCheckBox.Size = new System.Drawing.Size(154, 37);
+            this.nameCheckBox.TabIndex = 29;
+            this.nameCheckBox.Text = "Поиск по имени";
+            this.nameCheckBox.UseVisualStyleBackColor = true;
+            this.nameCheckBox.CheckedChanged += new System.EventHandler(this.nameCheckBox_CheckedChanged);
+            // 
+            // findTextBox
+            // 
+            this.findTextBox.AnimateReadOnly = false;
+            this.findTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.findTextBox.Depth = 0;
+            this.findTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.findTextBox.LeadingIcon = null;
+            this.findTextBox.Location = new System.Drawing.Point(6, 530);
+            this.findTextBox.MaxLength = 50;
+            this.findTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.findTextBox.Multiline = false;
+            this.findTextBox.Name = "findTextBox";
+            this.findTextBox.Size = new System.Drawing.Size(604, 50);
+            this.findTextBox.TabIndex = 28;
+            this.findTextBox.Text = "";
+            this.findTextBox.TrailingIcon = null;
+            // 
             // ReadersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 535);
+            this.ClientSize = new System.Drawing.Size(900, 597);
+            this.Controls.Add(this.nameCheckBox);
+            this.Controls.Add(this.findTextBox);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.readerLV);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(900, 535);
-            this.MinimumSize = new System.Drawing.Size(900, 535);
+            this.MaximumSize = new System.Drawing.Size(900, 597);
+            this.MinimumSize = new System.Drawing.Size(900, 597);
             this.Name = "ReadersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReadersForm";
@@ -176,5 +214,7 @@
         private System.Windows.Forms.ColumnHeader ReaderFullName;
         private System.Windows.Forms.ColumnHeader ReaderAddress;
         private System.Windows.Forms.ColumnHeader ReaderPhone;
+        private MaterialSkin.Controls.MaterialCheckbox nameCheckBox;
+        private MaterialSkin.Controls.MaterialTextBox findTextBox;
     }
 }
