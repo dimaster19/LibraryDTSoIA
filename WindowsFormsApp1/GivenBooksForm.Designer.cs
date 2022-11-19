@@ -42,6 +42,7 @@
             this.readerCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
             this.workerCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
             this.findTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
             this.SuspendLayout();
             // 
             // updateButton
@@ -121,7 +122,7 @@
             this.bookLV.Depth = 0;
             this.bookLV.FullRowSelect = true;
             this.bookLV.HideSelection = false;
-            this.bookLV.Location = new System.Drawing.Point(6, 91);
+            this.bookLV.Location = new System.Drawing.Point(6, 101);
             this.bookLV.MaximumSize = new System.Drawing.Size(767, 415);
             this.bookLV.MinimumSize = new System.Drawing.Size(767, 415);
             this.bookLV.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -166,7 +167,7 @@
             // 
             this.readerCheckBox.AutoSize = true;
             this.readerCheckBox.Depth = 0;
-            this.readerCheckBox.Location = new System.Drawing.Point(126, 512);
+            this.readerCheckBox.Location = new System.Drawing.Point(126, 522);
             this.readerCheckBox.Margin = new System.Windows.Forms.Padding(0);
             this.readerCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
             this.readerCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
@@ -183,7 +184,7 @@
             // 
             this.workerCheckBox.AutoSize = true;
             this.workerCheckBox.Depth = 0;
-            this.workerCheckBox.Location = new System.Drawing.Point(475, 509);
+            this.workerCheckBox.Location = new System.Drawing.Point(475, 519);
             this.workerCheckBox.Margin = new System.Windows.Forms.Padding(0);
             this.workerCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
             this.workerCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
@@ -201,9 +202,9 @@
             this.findTextBox.AnimateReadOnly = false;
             this.findTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.findTextBox.Depth = 0;
-            this.findTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.findTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.findTextBox.LeadingIcon = null;
-            this.findTextBox.Location = new System.Drawing.Point(56, 552);
+            this.findTextBox.Location = new System.Drawing.Point(56, 562);
             this.findTextBox.MaxLength = 50;
             this.findTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.findTextBox.Multiline = false;
@@ -213,11 +214,28 @@
             this.findTextBox.Text = "";
             this.findTextBox.TrailingIcon = null;
             // 
+            // materialSwitch1
+            // 
+            this.materialSwitch1.AutoSize = true;
+            this.materialSwitch1.Depth = 0;
+            this.materialSwitch1.Location = new System.Drawing.Point(6, 64);
+            this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSwitch1.Name = "materialSwitch1";
+            this.materialSwitch1.Ripple = true;
+            this.materialSwitch1.Size = new System.Drawing.Size(136, 37);
+            this.materialSwitch1.TabIndex = 25;
+            this.materialSwitch1.Text = "Должники";
+            this.materialSwitch1.UseVisualStyleBackColor = true;
+            this.materialSwitch1.CheckedChanged += new System.EventHandler(this.materialSwitch1_CheckedChanged);
+            // 
             // GivenBooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 616);
+            this.ClientSize = new System.Drawing.Size(900, 628);
+            this.Controls.Add(this.materialSwitch1);
             this.Controls.Add(this.readerCheckBox);
             this.Controls.Add(this.workerCheckBox);
             this.Controls.Add(this.findTextBox);
@@ -226,8 +244,8 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.bookLV);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(900, 616);
-            this.MinimumSize = new System.Drawing.Size(900, 616);
+            this.MaximumSize = new System.Drawing.Size(900, 628);
+            this.MinimumSize = new System.Drawing.Size(900, 628);
             this.Name = "GivenBooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GivenBooksForm";
@@ -251,5 +269,6 @@
         private MaterialSkin.Controls.MaterialCheckbox readerCheckBox;
         private MaterialSkin.Controls.MaterialCheckbox workerCheckBox;
         private MaterialSkin.Controls.MaterialTextBox findTextBox;
+        private MaterialSkin.Controls.MaterialSwitch materialSwitch1;
     }
 }

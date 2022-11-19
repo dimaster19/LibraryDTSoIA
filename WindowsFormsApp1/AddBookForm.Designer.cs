@@ -38,6 +38,8 @@
             this.authorCB = new MaterialSkin.Controls.MaterialComboBox();
             this.genreCB = new MaterialSkin.Controls.MaterialComboBox();
             this.publisherCB = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.bookCountTB = new MaterialSkin.Controls.MaterialTextBox();
             this.SuspendLayout();
             // 
             // bookNameTB
@@ -112,7 +114,7 @@
             this.saveButton.Depth = 0;
             this.saveButton.HighEmphasis = true;
             this.saveButton.Icon = null;
-            this.saveButton.Location = new System.Drawing.Point(211, 421);
+            this.saveButton.Location = new System.Drawing.Point(207, 477);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.saveButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveButton.Name = "saveButton";
@@ -191,11 +193,43 @@
             this.publisherCB.StartIndex = 0;
             this.publisherCB.TabIndex = 11;
             // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Location = new System.Drawing.Point(71, 390);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(89, 19);
+            this.materialLabel5.TabIndex = 13;
+            this.materialLabel5.Text = "Количество";
+            // 
+            // bookCountTB
+            // 
+            this.bookCountTB.AnimateReadOnly = false;
+            this.bookCountTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bookCountTB.Depth = 0;
+            this.bookCountTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.bookCountTB.LeadingIcon = null;
+            this.bookCountTB.Location = new System.Drawing.Point(73, 412);
+            this.bookCountTB.MaxLength = 4;
+            this.bookCountTB.MouseState = MaterialSkin.MouseState.OUT;
+            this.bookCountTB.Multiline = false;
+            this.bookCountTB.Name = "bookCountTB";
+            this.bookCountTB.Size = new System.Drawing.Size(398, 50);
+            this.bookCountTB.TabIndex = 12;
+            this.bookCountTB.Text = "";
+            this.bookCountTB.TrailingIcon = null;
+            this.bookCountTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bookCountTB_KeyPress);
+            // 
             // AddBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 486);
+            this.ClientSize = new System.Drawing.Size(533, 527);
+            this.Controls.Add(this.materialLabel5);
+            this.Controls.Add(this.bookCountTB);
             this.Controls.Add(this.publisherCB);
             this.Controls.Add(this.genreCB);
             this.Controls.Add(this.authorCB);
@@ -206,8 +240,8 @@
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.bookNameTB);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(533, 486);
-            this.MinimumSize = new System.Drawing.Size(533, 486);
+            this.MaximumSize = new System.Drawing.Size(533, 527);
+            this.MinimumSize = new System.Drawing.Size(533, 527);
             this.Name = "AddBookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBookForm";
@@ -228,5 +262,7 @@
         private MaterialSkin.Controls.MaterialComboBox authorCB;
         private MaterialSkin.Controls.MaterialComboBox genreCB;
         private MaterialSkin.Controls.MaterialComboBox publisherCB;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialTextBox bookCountTB;
     }
 }

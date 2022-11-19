@@ -43,14 +43,15 @@ namespace WindowsFormsApp1
                 {
                     SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
 
-                    string query = "INSERT INTO Books (AuthorID, PublisherID, GenreID, BookName)";
-                    query += " VALUES ( @AuthorID, @PublisherID, @GenreID, @BookName)";
+                    string query = "INSERT INTO Books (AuthorID, PublisherID, GenreID, BookName, BookCount)";
+                    query += " VALUES ( @AuthorID, @PublisherID, @GenreID, @BookName, @BookCount)";
 
                     SqlCommand myCommand = new SqlCommand(query, connection);
                     myCommand.Parameters.AddWithValue("@AuthorID", authorCB.SelectedValue);
                     myCommand.Parameters.AddWithValue("@PublisherID", publisherCB.SelectedValue);
                     myCommand.Parameters.AddWithValue("@GenreID", genreCB.SelectedValue);
                     myCommand.Parameters.AddWithValue("@BookName", bookNameTB.Text);
+                    myCommand.Parameters.AddWithValue("@BookCount", bookCountTB.Text);
                     connection.Open();
 
                     try
@@ -72,14 +73,15 @@ namespace WindowsFormsApp1
                 else
                 {
                     SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-                    //string query = "INSERT INTO Books (AuthorID, PublisherID, GenreID, BookName)";
-                    string query = "UPDATE Books Set AuthorID = @AuthorID, PublisherID = @PublisherID, GenreID = @GenreID, BookName = @BookName   WHERE BookID=@ID";
+              
+                    string query = "UPDATE Books Set AuthorID = @AuthorID, PublisherID = @PublisherID, GenreID = @GenreID, BookName = @BookName, BookCount = @BookCount   WHERE BookID=@ID";
 
                     SqlCommand myCommand = new SqlCommand(query, connection);
                     myCommand.Parameters.AddWithValue("@AuthorID", authorCB.SelectedValue);
                     myCommand.Parameters.AddWithValue("@PublisherID", publisherCB.SelectedValue);
                     myCommand.Parameters.AddWithValue("@GenreID", genreCB.SelectedValue);
                     myCommand.Parameters.AddWithValue("@BookName", bookNameTB.Text);
+                    myCommand.Parameters.AddWithValue("@BookCount", bookCountTB.Text);
                     myCommand.Parameters.AddWithValue("@ID", updateID);
                     connection.Open();
 
@@ -143,10 +145,24 @@ namespace WindowsFormsApp1
                     publisherCB.SelectedValue = reader[2].ToString();
                     genreCB.SelectedValue = reader[3].ToString();
                     bookNameTB.Text = reader[4].ToString();
+                    bookCountTB.Text = reader[5].ToString();
                     connection.Close();
                 }
             }
            
+        }
+
+        private void bookCountTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -53,12 +53,18 @@ namespace WindowsFormsApp1
                     myCommand.Parameters.AddWithValue("@DateStart", dateStartTB.Text);
                     myCommand.Parameters.AddWithValue("@DateEnd", dateEndTB.Text);
                     myCommand.Parameters.AddWithValue("@WorkerID", workerCB.SelectedValue);
-            
+
+                    string query1 = "UPDATE Books Set BookCount = BookCount - 1  WHERE BookID=@IDBook"; // удаляем 1 книгу из таблицы книг
+                    SqlCommand myCommand1 = new SqlCommand(query1, connection);
+                    myCommand1.Parameters.AddWithValue("@IDBook", bookCB.SelectedValue);
+                   
                     connection.Open();
 
                     try
                     {
                         myCommand.ExecuteNonQuery();
+                        myCommand1.ExecuteNonQuery();
+
                     }
                     catch (Exception)
                     {
@@ -112,6 +118,8 @@ namespace WindowsFormsApp1
         {
             using (connection)
             {
+
+
                 adapter = new SqlDataAdapter(sql1, connection);
                 ds = new DataSet();
                 adapter.Fill(ds);

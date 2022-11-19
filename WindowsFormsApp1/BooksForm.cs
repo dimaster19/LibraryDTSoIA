@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             SqlDataAdapter da = new SqlDataAdapter();
             SqlDataReader dataReader = null;
             SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-            string cmd = $"SELECT Books.BookID, Books.BookName, Authors.AuthorFullName, Genres.GenreName, Publishers.PublisherFullName FROM books left join Authors ON Books.AuthorID = Authors.IDAuthor left join Genres ON Books.GenreID = Genres.IDGenre left join Publishers ON Books.PublisherID = Publishers.IDPublisher";
+            string cmd = $"SELECT Books.BookID, Books.BookName, Authors.AuthorFullName, Genres.GenreName, Publishers.PublisherFullName, Books.BookCount FROM books left join Authors ON Books.AuthorID = Authors.IDAuthor left join Genres ON Books.GenreID = Genres.IDGenre left join Publishers ON Books.PublisherID = Publishers.IDPublisher";
             connection.Open();
             // ---------ЭТО ВЫВОД В DATAGRIDVIEW--------
             //da.SelectCommand = new SqlCommand(cmd, connection);
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
             ListViewItem item = null;
             while (dataReader.Read())
             {
-                item = new ListViewItem(new string[] { Convert.ToString(dataReader["BookID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["AuthorFullName"]), Convert.ToString(dataReader["GenreName"]), Convert.ToString(dataReader["PublisherFullName"]) });
+                item = new ListViewItem(new string[] { Convert.ToString(dataReader["BookID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["AuthorFullName"]), Convert.ToString(dataReader["GenreName"]), Convert.ToString(dataReader["PublisherFullName"]), Convert.ToString(dataReader["BookCount"]) });
                 bookLV.Items.Add(item);
             }
             da.Dispose();
@@ -162,86 +162,96 @@ namespace WindowsFormsApp1
 
         private void nameCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            bookLV.Items.Clear();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter();
-            SqlDataReader dataReader;
-            string cmd;
-            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-            try
+            if (nameCheckBox.Checked == true)
             {
-                using (connection)
+                bookLV.Items.Clear();
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataReader dataReader;
+                string cmd;
+                SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+                try
                 {
-
-                    cmd = string.Format("SELECT Books.BookID, Books.BookName, Authors.AuthorFullName, Genres.GenreName, Publishers.PublisherFullName FROM books left join Authors ON Books.AuthorID = Authors.IDAuthor left join Genres ON Books.GenreID = Genres.IDGenre left join Publishers ON Books.PublisherID = Publishers.IDPublisher WHERE Books.BookName like N'%" + findTextBox.Text + "%' ");
-                    connection.Open();
-                    
-                    ListViewItem item = null;
-                    dataReader = new SqlCommand(cmd, connection).ExecuteReader();
-                    while (dataReader.Read())
+                    using (connection)
                     {
-                        item = new ListViewItem(new string[] { Convert.ToString(dataReader["BookID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["AuthorFullName"]), Convert.ToString(dataReader["GenreName"]), Convert.ToString(dataReader["PublisherFullName"]) });
-                        bookLV.Items.Add(item);
+
+                        cmd = string.Format("SELECT Books.BookID, Books.BookName, Authors.AuthorFullName, Genres.GenreName, Publishers.PublisherFullName, Books.BookCount FROM books left join Authors ON Books.AuthorID = Authors.IDAuthor left join Genres ON Books.GenreID = Genres.IDGenre left join Publishers ON Books.PublisherID = Publishers.IDPublisher WHERE Books.BookName like N'%" + findTextBox.Text + "%' ");
+                        connection.Open();
+
+                        ListViewItem item = null;
+                        dataReader = new SqlCommand(cmd, connection).ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            item = new ListViewItem(new string[] { Convert.ToString(dataReader["BookID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["AuthorFullName"]), Convert.ToString(dataReader["GenreName"]), Convert.ToString(dataReader["PublisherFullName"]), Convert.ToString(dataReader["BookCount"]) });
+                            bookLV.Items.Add(item);
+                        }
+                        da.Dispose();
+                        connection.Close();
+                        ds.Dispose();
+
                     }
-                    da.Dispose();
-                    connection.Close();
-                    ds.Dispose();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                finally
+                {
+                    connection.Close();
 
+                }
+                
             }
-            finally
-            {
-                connection.Close();
+            else RefreshData();
 
-            }
 
-           
         }
 
         private void authorCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            bookLV.Items.Clear();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter();
-            SqlDataReader dataReader;
-            string cmd;
-            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-            try
+            if (authorCheckBox.Checked == true)
             {
-                using (connection)
+                bookLV.Items.Clear();
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataReader dataReader;
+                string cmd;
+                SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+                try
                 {
-
-                    cmd = string.Format("SELECT Books.BookID, Books.BookName, Authors.AuthorFullName, Genres.GenreName, Publishers.PublisherFullName FROM books left join Authors ON Books.AuthorID = Authors.IDAuthor left join Genres ON Books.GenreID = Genres.IDGenre left join Publishers ON Books.PublisherID = Publishers.IDPublisher WHERE AuthorFullName like N'%" + findTextBox.Text + "%' ");
-                    connection.Open();
-                    ListViewItem item = null;
-                    dataReader = new SqlCommand(cmd, connection).ExecuteReader();
-                    while (dataReader.Read())
+                    using (connection)
                     {
-                        item = new ListViewItem(new string[] { Convert.ToString(dataReader["BookID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["AuthorFullName"]), Convert.ToString(dataReader["GenreName"]), Convert.ToString(dataReader["PublisherFullName"]) });
-                        bookLV.Items.Add(item);
+
+                        cmd = string.Format("SELECT Books.BookID, Books.BookName, Authors.AuthorFullName, Genres.GenreName, Publishers.PublisherFullName, Books.BookCount FROM books left join Authors ON Books.AuthorID = Authors.IDAuthor left join Genres ON Books.GenreID = Genres.IDGenre left join Publishers ON Books.PublisherID = Publishers.IDPublisher WHERE AuthorFullName like N'%" + findTextBox.Text + "%' ");
+                        connection.Open();
+                        ListViewItem item = null;
+                        dataReader = new SqlCommand(cmd, connection).ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            item = new ListViewItem(new string[] { Convert.ToString(dataReader["BookID"]), Convert.ToString(dataReader["BookName"]), Convert.ToString(dataReader["AuthorFullName"]), Convert.ToString(dataReader["GenreName"]), Convert.ToString(dataReader["PublisherFullName"]), Convert.ToString(dataReader["BookCount"]) });
+                            bookLV.Items.Add(item);
+                        }
+                        da.Dispose();
+                        connection.Close();
+                        ds.Dispose();
+
                     }
-                    da.Dispose();
-                    connection.Close();
-                    ds.Dispose();
 
                 }
-
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            finally
-            {
-                connection.Close();
-            }
+            else RefreshData();
+            
            
         }
     }
