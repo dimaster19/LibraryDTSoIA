@@ -43,6 +43,7 @@ namespace WindowsFormsApp1
                 if (updateID == 0)
                 {
                     SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+                    connection.Open();
 
                     string query = "INSERT INTO GivenBooks (BookID, ReaderID, DateStart, DateEnd, WorkerID)";
                     query += " VALUES ( @BookID, @ReaderID, @DateStart, @DateEnd, @WorkerID)";
@@ -53,17 +54,28 @@ namespace WindowsFormsApp1
                     myCommand.Parameters.AddWithValue("@DateStart", dateStartTB.Text);
                     myCommand.Parameters.AddWithValue("@DateEnd", dateEndTB.Text);
                     myCommand.Parameters.AddWithValue("@WorkerID", workerCB.SelectedValue);
+                  
+                    string query2 = "SELECT BookCount FROM Books WHERE BookID=@IDBook"; // удаляем 1 книгу из таблицы книг
+                    SqlCommand myCommand2 = new SqlCommand(query2, connection);
+                    myCommand2.Parameters.AddWithValue("@IDBook", bookCB.SelectedValue);
+                    int bookCount = Convert.ToInt32(myCommand2.ExecuteScalar());
+                   
 
                     string query1 = "UPDATE Books Set BookCount = BookCount - 1  WHERE BookID=@IDBook"; // удаляем 1 книгу из таблицы книг
                     SqlCommand myCommand1 = new SqlCommand(query1, connection);
                     myCommand1.Parameters.AddWithValue("@IDBook", bookCB.SelectedValue);
                    
-                    connection.Open();
+                  
 
                     try
                     {
-                        myCommand.ExecuteNonQuery();
-                        myCommand1.ExecuteNonQuery();
+                        if (bookCount > 0)
+                        {
+                            myCommand.ExecuteNonQuery();
+                            myCommand1.ExecuteNonQuery();
+                        }
+                        else MessageBox.Show("Книги закончились", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 
                     }
                     catch (Exception)
@@ -111,7 +123,7 @@ namespace WindowsFormsApp1
                 DialogResult = System.Windows.Forms.DialogResult.OK;
                 Close();
             }
-            else MessageBox.Show("Заполните название книги");
+            else MessageBox.Show("Заполните даты");
         }
 
         private void AddGivenBookForm_Load(object sender, EventArgs e)
