@@ -101,7 +101,7 @@
             this.saveButton.Depth = 0;
             this.saveButton.HighEmphasis = true;
             this.saveButton.Icon = null;
-            this.saveButton.Location = new System.Drawing.Point(128, 350);
+            this.saveButton.Location = new System.Drawing.Point(146, 346);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.saveButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveButton.Name = "saveButton";
