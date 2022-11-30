@@ -95,43 +95,49 @@ namespace WindowsFormsApp1
 
         private void nameCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            readerLV.Items.Clear();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter();
-            SqlDataReader dataReader;
-            string cmd;
-            SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
-            try
+            if (nameCheckBox.Checked == true)
             {
-                using (connection)
+
+                readerLV.Items.Clear();
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter();
+                SqlDataReader dataReader;
+                string cmd;
+                SqlConnection connection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True");
+                try
                 {
-
-                    cmd = string.Format("SELECT * FROM Readers WHERE Readers.ReaderFullName like N'%" + findTextBox.Text + "%' ");
-                    connection.Open();
-
-                    ListViewItem item = null;
-                    dataReader = new SqlCommand(cmd, connection).ExecuteReader();
-                    while (dataReader.Read())
+                    using (connection)
                     {
-                        item = new ListViewItem(new string[] { Convert.ToString(dataReader["IDReader"]), Convert.ToString(dataReader["ReaderFullName"]), Convert.ToString(dataReader["ReaderAddress"]), Convert.ToString(dataReader["ReaderPhone"]) });
-                        readerLV.Items.Add(item);
+
+                        cmd = string.Format("SELECT * FROM Readers WHERE Readers.ReaderFullName like N'%" + findTextBox.Text + "%' ");
+                        connection.Open();
+
+                        ListViewItem item = null;
+                        dataReader = new SqlCommand(cmd, connection).ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            item = new ListViewItem(new string[] { Convert.ToString(dataReader["IDReader"]), Convert.ToString(dataReader["ReaderFullName"]), Convert.ToString(dataReader["ReaderAddress"]), Convert.ToString(dataReader["ReaderPhone"]) });
+                            readerLV.Items.Add(item);
+                        }
+                        da.Dispose();
+                        connection.Close();
+                        ds.Dispose();
+
                     }
-                    da.Dispose();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                finally
+                {
                     connection.Close();
-                    ds.Dispose();
 
                 }
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else RefreshData();
 
-            }
-            finally
-            {
-                connection.Close();
-
-            }
         }
     }
 }
