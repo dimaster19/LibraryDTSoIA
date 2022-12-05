@@ -247,5 +247,8 @@
     <Content Include="Resources\icons8-l-64.ico" />
     <None Include="Resources\piechart.png" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -241,6 +242,30 @@ namespace WindowsFormsApp1
             }
             else RefreshData();
             
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamWriter streamWriter = new StreamWriter(new FileStream(saveFileDialog.FileName, FileMode.Create), Encoding.UTF8))
+                    {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        stringBuilder.AppendLine("GivenID,BookName,ReaderFullName,DateStart,DateEnd,WorkerFullName");
+                        foreach (ListViewItem item in bookLV.Items)
+                        {
+                            stringBuilder.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, item.SubItems[4].Text, item.SubItems[5].Text));
+                        }
+                        streamWriter.WriteLine(stringBuilder.ToString());
+                        MessageBox.Show("Данные сохранены успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+
+
+
         }
     }
 }
